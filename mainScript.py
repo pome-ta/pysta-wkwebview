@@ -1,7 +1,7 @@
 import ui
 from objc_util import *
 from pprint import pprint
-
+import os
 
 
 def pdbg(obj):
@@ -55,10 +55,10 @@ def pdbg(obj):
 
 
 # load classes
-WKWebView,WKWebViewConfiguration,NSURLRequest=map(ObjCClass,['WKWebView','WKWebViewConfiguration','NSURLRequest'])
+WKWebView,NSURLRequest=map(ObjCClass,['WKWebView','NSURLRequest'])
 
-
-url=nsurl('https://www.apple.com/jp/')
+path=os.path.abspath('index.html')
+url=nsurl(path)
 
 
 
@@ -66,21 +66,31 @@ url=nsurl('https://www.apple.com/jp/')
 
 class MainView(ui.View):
   def __init__(self,*args, **kwargs):
+    # todo: おまじないになっとる
     super().__init__(self, *args, **kwargs)
     self.bg_color='red'
     f = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
     flex_width, flex_height = (1<<1), (1<<4)
     
     self.ins=ObjCInstance(self)
-    webview=WKWebView.alloc().initWithFrame_(f)
-    webview.setAutoresizingMask_(flex_width|flex_height)
-    pdbg(url)
-    webview.loadRequest_(NSURLRequest.requestWithURL_(url))
+    
+    self.webview=WKWebView.alloc().initWithFrame_(f)
+    self.webview.allowsBackForwardNavigationGestures=1
+    
+    self.webview.setAutoresizingMask_(flex_width|flex_height)
+    #self.webview.setMagnification_centeredAtPoint_(1,1.0)
+    #pdbg(url)
+    self.webview.loadRequest_(NSURLRequest.requestWithURL_(url))
     
     
-    self.ins.addSubview_(webview)
     
+    self.ins.addSubview_(self.webview)
+    
+    
+
 
 v=MainView()
+#v.present(hide_title_bar=1)
+print(v.webview.title())
 v.present()
-
+#pdbg(v.webview)
