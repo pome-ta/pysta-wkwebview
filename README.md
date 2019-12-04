@@ -1,3 +1,25 @@
+# 📝 2019/12/04
+
+とりあえず、view で出すことはできた。[Apple の公式ページ](https://www.apple.com/jp/)
+
+
+## 簡単な概要
+
+### `ui.View()`
+
+Pythonista の`ui` モジュールを使い外側を作る。
+
+#### `super().__init__(self, *args, **kwargs)`
+objc では、通例的な呼び出しやけど。おまじないなんじゃないか？🤔と思ってる
+
+#### `ObjCInstance(self)`
+objc 類の連携のため
+
+
+
+
+> The following is the `README.md`
+
 # pysta-wkwebview
 
 Practice WKWebView with Pythonista
@@ -7,7 +29,7 @@ Practice WKWebView with Pythonista
 
 ## Basic Data
 - iPhone
-	- iPhone 11
+	- iPhone 11 64GB
 	- iOS 13.2
 
 - Pythonista
@@ -17,11 +39,4 @@ Practice WKWebView with Pythonista
 
 [youey/youey/wkwebview.py](https://github.com/mikaelho/youey/blob/master/youey/wkwebview.py)
 
-
----
-> The following work notes
-
-# 📝 2019/12/04
-
-とりあえず、view で出すことはできた
 

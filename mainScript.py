@@ -3,9 +3,10 @@ from objc_util import *
 from pprint import pprint
 
 
-def pPass():
-  print('Pass')
+
 def pdbg(obj):
+  def pPass():
+    print('Pass')
   print('# --- name______')
   try:
     pprint(obj)
@@ -65,7 +66,6 @@ url=nsurl('https://www.apple.com/jp/')
 
 class MainView(ui.View):
   def __init__(self,*args, **kwargs):
-    # todo: おまじないになっとる
     super().__init__(self, *args, **kwargs)
     self.bg_color='red'
     f = CGRect(CGPoint(0, 0), CGSize(self.width, self.height))
@@ -74,7 +74,7 @@ class MainView(ui.View):
     self.ins=ObjCInstance(self)
     webview=WKWebView.alloc().initWithFrame_(f)
     webview.setAutoresizingMask_(flex_width|flex_height)
-    #pdbg(url)
+    pdbg(url)
     webview.loadRequest_(NSURLRequest.requestWithURL_(url))
     
     
