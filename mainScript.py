@@ -26,8 +26,8 @@ def pdbg(obj):
   # todo: 落ちる時は落ちる
   print('# --- ivarDescription')
   try:
-    pass
-    #pprint(obj._ivarDescription())
+    #pass
+    pprint(obj._ivarDescription())
   except:
     pPass()
   print('# --- shortMethodDescription')
@@ -57,12 +57,14 @@ def pdbg(obj):
 # load classes
 WKWebView,NSURLRequest=map(ObjCClass,['WKWebView','NSURLRequest'])
 
+# html load
 path=os.path.abspath('index.html')
-url=nsurl(path)
 
+oPath='file://'+path
 
+url=NSURL.fileURLWithPath_(path)
+oUrl=NSURL.fileURLWithPath_(oPath)
 
-#WKWebView=ObjCClass('WKWebView')
 
 class MainView(ui.View):
   def __init__(self,*args, **kwargs):
@@ -75,12 +77,13 @@ class MainView(ui.View):
     self.ins=ObjCInstance(self)
     
     self.webview=WKWebView.alloc().initWithFrame_(f)
+    
     self.webview.allowsBackForwardNavigationGestures=1
     
     self.webview.setAutoresizingMask_(flex_width|flex_height)
-    #self.webview.setMagnification_centeredAtPoint_(1,1.0)
-    #pdbg(url)
-    self.webview.loadRequest_(NSURLRequest.requestWithURL_(url))
+    #self.webview.loadRequest_(NSURLRequest.requestWithURL_(url))
+    self.webview.loadFileURL_allowingReadAccessToURL_(url,oUrl)
+    
     
     
     
@@ -91,6 +94,6 @@ class MainView(ui.View):
 
 v=MainView()
 #v.present(hide_title_bar=1)
-print(v.webview.title())
+
 v.present()
 #pdbg(v.webview)
