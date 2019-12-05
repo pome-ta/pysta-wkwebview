@@ -20,7 +20,7 @@ objc では、通例的な呼び出しやけど。おまじないなんじゃな
 objc 類の連携のため、Python の`self` (`ui.View()`) をインスタンス化
 
 
-## `def pdbg(obj)`
+### `def pdbg(obj)`
 
 objc のprintデバッグ用（白目）
 
@@ -28,6 +28,11 @@ objc のprintデバッグ用（白目）
 
 ### `loadRequest_`
 `NSURLRequest.requestWithURL_(url)` を噛ませないと死ぬ
+
+
+### `allowsBackForwardNavigationGestures=1`
+swipe で戻れるようにしたけど、多分使わないわ
+
 
 
 ## 今後の制御系統について
