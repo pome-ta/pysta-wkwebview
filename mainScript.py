@@ -91,6 +91,6 @@ class MainView(ui.View):
 
 v=MainView()
 #v.present(hide_title_bar=1)
-print(v.webview.title())
+
 v.present()
 #pdbg(v.webview)
