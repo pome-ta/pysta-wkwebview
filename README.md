@@ -1,3 +1,17 @@
+# pysta-wkwebview
+[Pythonista](http://omz-software.com/pythonista/) WKWebView test space repository.
+
+
+# 📝 2020/01/05
+過去のものは、customフォルダに移動
+
+## accessory bar のカスタマイズ
+
+- `<textarea>` 選択時の状態でプリントデバッグ
+- `search_bar.py` として吐出し
+- 階層内から探してみる
+
+
 # 📝 2019/12/04
 
 ~~とりあえず、view で出すことはできた。[Apple の公式ページ](https://www.apple.com/jp/)~~
