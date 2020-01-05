@@ -5,11 +5,15 @@
 # 📝 2020/01/05
 過去のものは、customフォルダに移動
 
-## accessory bar のカスタマイズ
+## accessory tool bar のカスタマイズ
 
 - `<textarea>` 選択時の状態でプリントデバッグ
 - `search_bar.py` として吐出し
 - 階層内から探してみる
+
+### 参照
+[Objective-Cの黒魔術がよくわからなかったので覗いてみた👻](https://qiita.com/mopiemon/items/8d0dd7d678c4dadeadd4)
+
 
 
 # 📝 2019/12/04
